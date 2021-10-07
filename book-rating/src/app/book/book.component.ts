@@ -10,4 +10,9 @@ export class BookComponent {
 
   @Input()
   book?: Book;
+
+
+  log() {
+    console.log('Hallo CD!', new Date())
+  }
 }
