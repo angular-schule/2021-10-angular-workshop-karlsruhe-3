@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Book Rating';
-
-  constructor() {
-    setTimeout(() => this.title = 'Black Angular', 1000)
-  }
 }
