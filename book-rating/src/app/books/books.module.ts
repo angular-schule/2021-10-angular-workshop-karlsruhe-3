@@ -20,4 +20,3 @@ import { BookComponent } from './book/book.component';
   ]
 })
 export class BooksModule { }
- 
