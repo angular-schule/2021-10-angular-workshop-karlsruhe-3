@@ -18,6 +18,12 @@ export class CreateBookComponent  {
     description: new FormControl()
   });
 
+  // constructor() {
+  //   this.bookForm.valueChanges.subscribe(
+  //     e => console.log(e)
+  //   );
+  // }
+
   isInvalid(path: string): boolean {
     const control = this.bookForm.get(path);
     return !!control && control.touched && control.invalid;
