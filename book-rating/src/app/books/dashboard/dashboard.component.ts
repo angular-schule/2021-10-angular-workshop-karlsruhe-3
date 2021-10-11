@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
 
