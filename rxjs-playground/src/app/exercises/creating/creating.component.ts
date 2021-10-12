@@ -23,11 +23,37 @@ export class CreatingComponent {
 
     /******************************/
 
-    // (ABC|)
-    of('😉', '😝', '😁').subscribe(
-      e => this.log(e),
-      err => this.log('ERROR' + err),
-      () => this.log('COMPLETE! ✅'));
+    // 1. Observer
+    const observer = {
+      next: (e: string) => this.log(e),
+      error: (err: any) => this.log('ERROR' + err),
+      complete: () => this.log('COMPLETE! ✅')
+    }
+
+    // 2. Observable
+    // const observable$ = of('😉', '😝', '😁')
+
+    // 3. Subscriber
+    const observable$ = new Observable<string>(subscriber => {
+      subscriber.next('😉');
+      subscriber.next('😍');
+      subscriber.next('😎');
+
+      const y = setTimeout(() => subscriber.next('🤯'), 1000);
+      const z = setTimeout(() => { subscriber.next('🤯'); this.log('ZOMBIES') }, 1500);
+      // setTimeout(() => subscriber.error('Boom!'), 500);
+
+      return () => {
+        this.log('Es wurde unsubscribed!');
+        clearTimeout(y)
+        clearTimeout(z)
+      };
+    });
+
+    // 4. Subscription
+    const subscription = observable$.subscribe(observer);
+
+    setTimeout(() => subscription.unsubscribe(), 1200);
 
 
     /******************************/
