@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Book } from '../shared/book';
+import { Book } from '../shared/http';
 
 @Component({
   selector: 'br-create-book',

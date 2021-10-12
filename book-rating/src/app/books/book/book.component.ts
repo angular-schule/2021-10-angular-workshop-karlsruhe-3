@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Book } from '../shared/book';
+import { Book } from '../shared/http';
 
 @Component({
   selector: 'br-book',

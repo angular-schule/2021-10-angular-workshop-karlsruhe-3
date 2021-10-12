@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "generate": "openapi-generator-cli generate -i https://api.angular.schule/swagger.json -g typescript-angular -c config.json -o ./src/app/books/shared/http --skip-validate-spec"
+    "generate": "npm run generate:fix-version && npm run generate:build",
+    "generate:fix-version": "openapi-generator-cli version-manager set 5.1.0",
+    "generate:build": "openapi-generator-cli generate -i https://api.angular.schule/swagger.json -g typescript-angular -c config.json -o ./src/app/books/shared/http --skip-validate-spec"
 
   },
   "private": true,
