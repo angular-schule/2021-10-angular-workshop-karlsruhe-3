@@ -1,8 +1,12 @@
 <div class="card mb-4" *ngIf="book">
   <div class="card-body bg-light">
-      <img class="img-thumbnail float-right"
-        alt="Picture of 1 to 5 cats"
-        src="https://api.angular.schule/avatar/{{ book.rating }}">
+      <img
+        *ngFor="let t of book.thumbnails"
+        class="img-thumbnail float-right"
+        alt="{{ t.title }} of book '{{ book.title }}'"
+        title="{{ t.title }} of book '{{ book.title }}'"
+        [src]="t.url"
+        width="150">
     <div class="card-title">
       <h2>
         {{ book.title }}
