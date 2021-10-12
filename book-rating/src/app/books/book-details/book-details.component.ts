@@ -12,9 +12,6 @@ export class BookDetailsComponent {
 
   constructor(private route: ActivatedRoute) {
 
-    this.isbn = this.route.snapshot.paramMap.get('isbn')!;
-
+    this.route.paramMap.subscribe(paramMap => this.isbn = paramMap.get('isbn')!)
   }
-
-
 }
