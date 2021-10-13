@@ -9,8 +9,7 @@ import { selectBooks, selectBooksLoading } from '../store/book.selectors';
   selector: 'br-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  // VORSICHT BUG: defekt sobald wir AJAX machen
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent {
 
