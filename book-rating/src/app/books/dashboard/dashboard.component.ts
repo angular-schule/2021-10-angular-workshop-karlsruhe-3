@@ -15,7 +15,6 @@ export class DashboardComponent {
   books: Book[] = [];
 
   constructor(private br: BookRatingService, private bs: BooksService) {
-    this.bs.booksGet().subscribe(books => this.books = books)
   }
 
   doRateDown(book: Book): void {
