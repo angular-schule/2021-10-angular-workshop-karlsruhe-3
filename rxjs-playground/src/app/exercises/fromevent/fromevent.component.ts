@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { map, startWith, debounceTime } from 'rxjs/operators';
+import { map, startWith, debounceTime, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'rxw-fromevent',
@@ -22,7 +22,17 @@ export class FromeventComponent {
 
     /******************************/
 
-    
+    fromEvent(window, 'resize').pipe(
+      // map(() => window.innerWidth) --> Pipes sollten pure bleiben
+      map(e => (e.target as Window).innerWidth),
+      debounceTime(1000),
+      startWith(-999),
+      startWith(-888),
+      tap(console.log) // --> Seiteneffekte immer nur mit tap
+    )
+    .subscribe(width => this.currentWidth = width)
+
+
     /******************************/
   }
 
