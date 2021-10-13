@@ -1,6 +1,13 @@
-<h1>{{ book$ | async | json }}</h1>
+<h1>{{ (book$ | async)?.title }}</h1>
 
-<p>book-details works!</p>
+<p
+  *ngIf="showDetails"
+  >
+  Details:
+  {{ (book$ | async)?.description }}</p>
 
 
-<a routerLink="/books/9783864904523">Go to Git book</a>
+<button (click)="showDetails = !showDetails">Toggle Details</button>
+
+
+<a routerLink="/books/9783960091417">Go to GitHub book</a>
